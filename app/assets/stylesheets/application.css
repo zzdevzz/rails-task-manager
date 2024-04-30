@@ -14,3 +14,11 @@
  *= require_self
  */
  @import "font-awesome";
+
+ .main-page > *, li a{
+  text-decoration: none;
+ }
+
+ li * {
+  color: gray;
+ }

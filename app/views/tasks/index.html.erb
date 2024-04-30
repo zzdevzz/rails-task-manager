@@ -1,21 +1,29 @@
-<h1 class="p-3">Task List</h1>
-<ul class="list-unstyled p-3">
-  <% @tasks.each do |task| %>
-    <li class="link-unstyled">
-      <% if task.completed %>
-        <i class="fa-regular fa-square-check"></i>
-      <% else %>
-        <i class="fa-regular fa-square"></i>
-      <% end %>
+<div class="main-page">
+  <h1 class="p-3 text-muted">Task List</h1>
+  <ul class="list-unstyled p-3 text-muted">
+    <% @tasks.each do |task| %>
+      <li class="text-muted">
+        <% if task.completed %>
+          <i class="fa-regular fa-square-check"></i>
+        <% else %>
+          <i class="fa-regular fa-square"></i>
+        <% end %>
 
-      <%= link_to(edit_task_path(task)) do %>
-        <%= task.title %>
-        <%= task.details %>
-      <% end %>
+        <%= link_to(edit_task_path(task)) do %>
+          <%= task.title %>
+        <% end %>
 
-      <%= link_to destroy_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
-        <i class="fa-solid fa-trash "></i>
-      <% end %>
-    </li>
+        <%= link_to destroy_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
+          <i class="fa-solid fa-trash "></i>
+        <% end %>
+
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to(tasks_new_path) do %>
+    <div class="btn btn-info mx-3">
+      <i class="fa-solid fa-plus"></i> Add a new task
+    </div>
   <% end %>
-</ul>
+</div>
