@@ -1,0 +1,9 @@
+<%= form_with model: task do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.submit %>
+<% end %>
+
+<%# partial html allows me to use this in multiple places. task cannot be instance here since its reusable. %>
